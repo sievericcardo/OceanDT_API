@@ -1,0 +1,289 @@
+@prefix : <http://www.semanticweb.org/laurasla/ontologies/2024/8/untitled-ontology-42/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix torsk: <http://www.marinehabitatweb.org/torsk#> .
+@base <http://www.semanticweb.org/laurasla/ontologies/2024/8/untitled-ontology-42/> .
+
+<http://www.marinehabitatweb.org/torsk> rdf:type owl:Ontology ;
+                                         owl:versionIRI <http://www.marinehabitatweb.org/torsk/1.0.0> ;
+                                         rdfs:comment "https://www.mn.uio.no/cees/english/outreach/blogs/marine-science/what-eat-cod.html" .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.marinehabitatweb.org/torsk#has_preferred_temperature
+torsk:has_preferred_temperature rdf:type owl:ObjectProperty .
+
+
+###  http://www.marinehabitatweb.org/torsk#is_obs_of
+torsk:is_obs_of rdf:type owl:ObjectProperty ;
+                rdfs:domain torsk:Taxa_Observation .
+
+
+###  http://www.marinehabitatweb.org/torsk#is_prey_of
+torsk:is_prey_of rdf:type owl:ObjectProperty ;
+                 owl:inverseOf torsk:preys_on .
+
+
+###  http://www.marinehabitatweb.org/torsk#preys_on
+torsk:preys_on rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.marinehabitatweb.org/torsk#has_name
+torsk:has_name rdf:type owl:DatatypeProperty ;
+               rdfs:range xsd:string .
+
+
+###  http://www.marinehabitatweb.org/torsk#has_pref_max_oxy
+torsk:has_pref_max_oxy rdf:type owl:DatatypeProperty ;
+                       rdfs:range xsd:integer ;
+                       rdfs:comment "mg/L" .
+
+
+###  http://www.marinehabitatweb.org/torsk#has_pref_max_salinity
+torsk:has_pref_max_salinity rdf:type owl:DatatypeProperty ;
+                            rdfs:range xsd:integer ;
+                            rdfs:comment "ppt parts per thousand" .
+
+
+###  http://www.marinehabitatweb.org/torsk#has_pref_max_temp
+torsk:has_pref_max_temp rdf:type owl:DatatypeProperty ;
+                        rdfs:range xsd:integer ;
+                        rdfs:comment "in Celsius" .
+
+
+###  http://www.marinehabitatweb.org/torsk#has_pref_min_oxy
+torsk:has_pref_min_oxy rdf:type owl:DatatypeProperty ;
+                       rdfs:range xsd:integer ;
+                       rdfs:comment "mg/L" .
+
+
+###  http://www.marinehabitatweb.org/torsk#has_pref_min_salinity
+torsk:has_pref_min_salinity rdf:type owl:DatatypeProperty ;
+                            rdfs:range xsd:integer ;
+                            rdfs:comment "ppt parts per thousand" .
+
+
+###  http://www.marinehabitatweb.org/torsk#has_pref_min_temp
+torsk:has_pref_min_temp rdf:type owl:DatatypeProperty ;
+                        rdfs:range xsd:integer ;
+                        rdfs:comment "in C" .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.marinehabitatweb.org/torsk#Capelin_SalmonObs
+torsk:Capelin_SalmonObs rdf:type owl:Class ;
+                        rdfs:subClassOf torsk:Taxa_Observation .
+
+
+###  http://www.marinehabitatweb.org/torsk#Euphausiids_KrillObs
+torsk:Euphausiids_KrillObs rdf:type owl:Class ;
+                           rdfs:subClassOf torsk:Taxa_Observation ;
+                           rdfs:comment "AphiaID 1128  (urn:lsid:marinespecies.org:taxname:1128)" .
+
+
+###  http://www.marinehabitatweb.org/torsk#Gadus_morhuaObs
+torsk:Gadus_morhuaObs rdf:type owl:Class ;
+                      rdfs:subClassOf torsk:Taxa_Observation .
+
+
+###  http://www.marinehabitatweb.org/torsk#HerringObs
+torsk:HerringObs rdf:type owl:Class ;
+                 rdfs:subClassOf torsk:Taxa_Observation .
+
+
+###  http://www.marinehabitatweb.org/torsk#HyperiideaObs
+torsk:HyperiideaObs rdf:type owl:Class ;
+                    rdfs:subClassOf torsk:Taxa_Observation .
+
+
+###  http://www.marinehabitatweb.org/torsk#Shrimp_CarideaObs
+torsk:Shrimp_CarideaObs rdf:type owl:Class ;
+                        rdfs:subClassOf torsk:Taxa_Observation .
+
+
+###  http://www.marinehabitatweb.org/torsk#Taxa
+torsk:Taxa rdf:type owl:Class .
+
+
+###  http://www.marinehabitatweb.org/torsk#Taxa_Observation
+torsk:Taxa_Observation rdf:type owl:Class ;
+                       rdfs:comment """This is a single observation and contains the following information:
+Species observed in a particular life phase (e.g. adult cod)
+Geographical Location
+TimeDate 
+Prov (Source)""" .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.marinehabitatweb.org/torsk#Capelin
+torsk:Capelin rdf:type owl:NamedIndividual ,
+                       torsk:Taxa ;
+              torsk:has_name "capelin" ;
+              torsk:has_pref_max_oxy 8 ;
+              torsk:has_pref_max_salinity 34 ;
+              torsk:has_pref_max_temp 9 ;
+              torsk:has_pref_min_oxy 5 ;
+              torsk:has_pref_min_salinity 32 ;
+              torsk:has_pref_min_temp 3 .
+
+
+###  http://www.marinehabitatweb.org/torsk#Euphausiids
+torsk:Euphausiids rdf:type owl:NamedIndividual ,
+                           torsk:Taxa ;
+                  torsk:has_name "euphausiids" ;
+                  torsk:has_pref_max_oxy 8 ;
+                  torsk:has_pref_max_salinity 35 ;
+                  torsk:has_pref_max_temp 15 ;
+                  torsk:has_pref_min_oxy 4 ;
+                  torsk:has_pref_min_salinity 30 ;
+                  torsk:has_pref_min_temp -1 .
+
+
+###  http://www.marinehabitatweb.org/torsk#Gadus_morhua
+torsk:Gadus_morhua rdf:type owl:NamedIndividual ,
+                            torsk:Taxa ;
+                   torsk:preys_on torsk:Capelin ,
+                                  torsk:Euphausiids ,
+                                  torsk:Gadus_morhua ,
+                                  torsk:Herring ,
+                                  torsk:Hyperiidea ,
+                                  torsk:Shrimp ,
+                                  torsk:spiny_starfish ;
+                   torsk:has_name "atlantic_cod" ;
+                   torsk:has_pref_max_oxy 8 ;
+                   torsk:has_pref_max_salinity 35 ;
+                   torsk:has_pref_max_temp 10 ;
+                   torsk:has_pref_min_oxy 6 ;
+                   torsk:has_pref_min_salinity 30 ;
+                   torsk:has_pref_min_temp 2 .
+
+
+###  http://www.marinehabitatweb.org/torsk#Herring
+torsk:Herring rdf:type owl:NamedIndividual ,
+                       torsk:Taxa ;
+              torsk:preys_on torsk:Hyperiidea ;
+              torsk:has_name "herring" ;
+              torsk:has_pref_max_oxy 8 ;
+              torsk:has_pref_max_salinity 35 ;
+              torsk:has_pref_max_temp 12 ;
+              torsk:has_pref_min_oxy 5 ;
+              torsk:has_pref_min_salinity 30 ;
+              torsk:has_pref_min_temp 4 .
+
+
+###  http://www.marinehabitatweb.org/torsk#Hyperiidea
+torsk:Hyperiidea rdf:type owl:NamedIndividual ,
+                          torsk:Taxa ;
+                 torsk:has_name "hyperiidea" ;
+                 torsk:has_pref_max_oxy 8 ;
+                 torsk:has_pref_max_salinity 35 ;
+                 torsk:has_pref_max_temp 15 ;
+                 torsk:has_pref_min_oxy 4 ;
+                 torsk:has_pref_min_salinity 30 ;
+                 torsk:has_pref_min_temp 0 .
+
+
+###  http://www.marinehabitatweb.org/torsk#Shrimp
+torsk:Shrimp rdf:type owl:NamedIndividual ,
+                      torsk:Taxa ;
+             torsk:has_name "shrimp" ;
+             torsk:has_pref_max_oxy 8 ;
+             torsk:has_pref_max_salinity 35 ;
+             torsk:has_pref_max_temp 8 ;
+             torsk:has_pref_min_oxy 4 ;
+             torsk:has_pref_min_salinity 25 ;
+             torsk:has_pref_min_temp 2 .
+
+
+###  http://www.marinehabitatweb.org/torsk#goldsinny_wrasse
+torsk:goldsinny_wrasse rdf:type owl:NamedIndividual ,
+                                torsk:Taxa ;
+                       torsk:is_prey_of torsk:Gadus_morhua ;
+                       torsk:preys_on torsk:Hyperiidea ,
+                                      torsk:Shrimp ,
+                                      torsk:spiny_starfish ;
+                       torsk:has_name "goldsinny_wrasse" ;
+                       torsk:has_pref_max_oxy 6 ;
+                       torsk:has_pref_max_salinity 35 ;
+                       torsk:has_pref_max_temp 20 ;
+                       torsk:has_pref_min_oxy 5 ;
+                       torsk:has_pref_min_salinity 30 ;
+                       torsk:has_pref_min_temp 10 .
+
+
+###  http://www.marinehabitatweb.org/torsk#observation12452
+torsk:observation12452 rdf:type owl:NamedIndividual ,
+                                torsk:Shrimp_CarideaObs .
+
+
+###  http://www.marinehabitatweb.org/torsk#observationID100
+torsk:observationID100 rdf:type owl:NamedIndividual ,
+                                torsk:Gadus_morhuaObs ;
+                       torsk:is_obs_of torsk:Gadus_morhua .
+
+
+###  http://www.marinehabitatweb.org/torsk#observationID124
+torsk:observationID124 rdf:type owl:NamedIndividual ,
+                                torsk:HerringObs .
+
+
+###  http://www.marinehabitatweb.org/torsk#observationID2135
+torsk:observationID2135 rdf:type owl:NamedIndividual ,
+                                 torsk:Taxa_Observation ;
+                        torsk:is_obs_of torsk:Herring .
+
+
+###  http://www.marinehabitatweb.org/torsk#observationID230
+torsk:observationID230 rdf:type owl:NamedIndividual ,
+                                torsk:Taxa_Observation .
+
+
+###  http://www.marinehabitatweb.org/torsk#observationID453
+torsk:observationID453 rdf:type owl:NamedIndividual ,
+                                torsk:HerringObs .
+
+
+###  http://www.marinehabitatweb.org/torsk#spiny_starfish
+torsk:spiny_starfish rdf:type owl:NamedIndividual ,
+                              torsk:Taxa ;
+                     torsk:is_prey_of torsk:Gadus_morhua ;
+                     torsk:has_name "spiny_starfish" ;
+                     torsk:has_pref_max_oxy 8 ;
+                     torsk:has_pref_max_salinity 35 ;
+                     torsk:has_pref_max_temp 15 ;
+                     torsk:has_pref_min_oxy 4 ;
+                     torsk:has_pref_min_salinity 25 ;
+                     torsk:has_pref_min_temp 5 .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( torsk:Capelin_SalmonObs
+                torsk:Euphausiids_KrillObs
+                torsk:Gadus_morhuaObs
+                torsk:HerringObs
+                torsk:HyperiideaObs
+                torsk:Shrimp_CarideaObs
+              )
+] .
+
+
+###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi
