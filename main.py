@@ -91,9 +91,12 @@ def query_species(request: QueryRequest):
     temperature = request.temperature
     salinity = request.salinity
     oxygen = request.oxygen
+    url = request.url
+
+    print(f"Querying species with temperature: {temperature}, salinity: {salinity}, oxygen: {oxygen}")
 
     # Query the ontology
-    ontology_query = OntologyQueryProcess(request.url)
+    ontology_query = OntologyQueryProcess(url)
     response = ontology_query.query_species(temperature, salinity, oxygen)
 
     return {"status": "success", "data": ontology_query.extract_bindings(response)}
@@ -102,9 +105,12 @@ def query_species(request: QueryRequest):
 @app.post("/species_parameters")
 def query_species_parameters(request: SpeciesParametersRequest):
     individual = request.individual
+    url = request.url
+
+    print(f"Querying species parameters for individual: {individual}")
 
     # Query the ontology
-    ontology_query = OntologyQueryProcess(request.url)
+    ontology_query = OntologyQueryProcess(url)
     response = ontology_query.query_species_parameters(individual)
 
     return {"status": "success", "data": ontology_query.extract_bindings(response)}
